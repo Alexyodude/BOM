@@ -1,19 +1,19 @@
 :root {
-  --bg: #0f1117;
-  --bg-card: #1a1d27;
-  --bg-input: #232733;
-  --border: #2e3345;
-  --text: #e1e4ed;
-  --text-dim: #8b90a0;
-  --accent: #6c8cff;
-  --accent-hover: #8ba4ff;
-  --accent-dim: rgba(108, 140, 255, 0.12);
-  --green: #4ade80;
-  --yellow: #facc15;
-  --orange: #fb923c;
-  --red: #f87171;
+  --bg: #12141c;
+  --bg-card: #1e2233;
+  --bg-input: #282d3f;
+  --border: #3a4160;
+  --text: #f0f2fa;
+  --text-dim: #a8adc4;
+  --accent: #7ea0ff;
+  --accent-hover: #a3bdff;
+  --accent-dim: rgba(126, 160, 255, 0.16);
+  --green: #5cebb9;
+  --yellow: #ffd952;
+  --orange: #ffa75c;
+  --red: #ff8a8a;
   --radius: 8px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -32,7 +32,7 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #1a1d27 0%, #252a3a 100%);
+  background: linear-gradient(135deg, #1e2233 0%, #2a3050 100%);
   border-bottom: 1px solid var(--border);
   padding: 1.5rem 2rem;
 }
@@ -245,27 +245,27 @@ tbody tr:hover {
 }
 
 .status-pending {
-  background: rgba(250, 204, 21, 0.15);
+  background: rgba(255, 217, 82, 0.18);
   color: var(--yellow);
 }
 
 .status-ordered {
-  background: rgba(251, 146, 60, 0.15);
+  background: rgba(255, 167, 92, 0.18);
   color: var(--orange);
 }
 
 .status-shipped {
-  background: rgba(108, 140, 255, 0.15);
+  background: rgba(126, 160, 255, 0.18);
   color: var(--accent);
 }
 
 .status-received {
-  background: rgba(74, 222, 128, 0.15);
+  background: rgba(92, 235, 185, 0.18);
   color: var(--green);
 }
 
 .status-complete {
-  background: rgba(74, 222, 128, 0.25);
+  background: rgba(92, 235, 185, 0.28);
   color: var(--green);
 }
 
@@ -548,6 +548,10 @@ tbody tr:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal[hidden] {
+  display: none !important;
 }
 
 .modal-backdrop {
