@@ -45,35 +45,12 @@ const SEED_ORDERS = [
       { partNumber: 'C107368', description: '4.7uF ±10% 6.3V X7R 0603 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.0198, designator: '', package: '0603' },
     ],
   },
-  {
-    id: 'bom-usb-pcb40',
-    name: 'BOM USB_PCB40 — USB Switch Board',
-    supplier: 'LCSC',
-    date: '2026-03-29',
-    status: 'pending',
-    notes: 'USB switching PCB with MOSFETs and analog switches',
-    createdAt: '2026-03-29T00:00:00Z',
-    parts: [
-      { partNumber: 'C315248', description: '10uF ±20% 4V X5R 0402 Ceramic Capacitor (CL05A106MP5NUNC, Samsung)', qty: 2, unitPrice: 0, designator: 'C1,C2', package: 'C0402' },
-      { partNumber: 'C14663', description: '100nF ±10% 50V X7R 0603 Ceramic Capacitor (CC0603KRX7R9BB104, YAGEO)', qty: 2, unitPrice: 0, designator: 'C3,C4', package: 'C0603' },
-      { partNumber: 'C2135', description: 'BAT54C Dual Schottky Diode SOT-23 (CJ)', qty: 1, unitPrice: 0, designator: 'D1', package: 'SOT-23-3' },
-      { partNumber: 'C2843781', description: 'XL-2835RGBC-KS RGB LED SMD (XINGLIGHT)', qty: 1, unitPrice: 0, designator: 'LED1', package: 'LED-SMD_L3.5-W2.8' },
-      { partNumber: 'C41384537', description: 'DO2301E-Q P-Ch MOSFET SOT-23 (DOINGTER)', qty: 2, unitPrice: 0, designator: 'Q1,Q2', package: 'SOT-23-3' },
-      { partNumber: 'C5296725', description: 'SI2302 N-Ch MOSFET 2.3A SOT-23 (JSMSEMI)', qty: 2, unitPrice: 0, designator: 'Q3,Q5', package: 'SOT-23-3' },
-      { partNumber: 'C2841482', description: 'AO4407A P-Ch MOSFET SOP-8 (UMW)', qty: 1, unitPrice: 0, designator: 'Q4', package: 'SOP-8' },
-      { partNumber: 'C25744', description: '10kΩ ±1% 62.5mW 0402 Thick Film Resistor (UNI-ROYAL)', qty: 2, unitPrice: 0, designator: 'R1,R3', package: 'R0402' },
-      { partNumber: 'C2828711', description: '500Ω ±0.1% 0805 Precision Resistor (ARG05BTC5000, Viking)', qty: 1, unitPrice: 0, designator: 'R2', package: 'R0805' },
-      { partNumber: 'C7430397', description: '2x1 Pin Header P2.54mm (DS1021-2x1SF11-B, CONNFLY)', qty: 1, unitPrice: 0, designator: 'U1', package: 'HDR-TH_2P-P2.54' },
-      { partNumber: 'C181970', description: 'SN74LVC2G66DCUR Dual Bilateral Analog Switch VSSOP-8 (TI)', qty: 2, unitPrice: 0, designator: 'U2,U3', package: 'VSSOP-8' },
-      { partNumber: 'C2765186', description: 'USB-C 16PIN Connector SMD (SHOU HAN)', qty: 2, unitPrice: 0, designator: 'USB1,USB2', package: 'USB-C-SMD' },
-    ],
-  },
 ];
 
 // ── State ──────────────────────────────────────────────
 const STORAGE_KEY = 'bom-tracker-data';
 const SEED_VERSION_KEY = 'bom-tracker-seed-v';
-const CURRENT_SEED_VERSION = 2;
+const CURRENT_SEED_VERSION = 3;
 
 function loadData() {
   try {
@@ -81,6 +58,8 @@ function loadData() {
     // Seed on first load or when seed version bumps
     const seeded = parseInt(localStorage.getItem(SEED_VERSION_KEY)) || 0;
     if (seeded < CURRENT_SEED_VERSION) {
+      // Remove USB_PCB40 if it was previously seeded (it was not an actual order)
+      d.orders = d.orders.filter(o => o.id !== 'bom-usb-pcb40');
       const existingIds = new Set(d.orders.map(o => o.id));
       SEED_ORDERS.forEach(seed => {
         if (!existingIds.has(seed.id)) d.orders.push(seed);
