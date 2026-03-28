@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOM Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>BOM Tracker</h1>
+      <p class="subtitle">Bill of Materials Order Management</p>
+    </div>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+    <button class="nav-btn" data-view="orders">Orders</button>
+    <button class="nav-btn" data-view="parts">All Parts</button>
+    <button class="nav-btn" data-view="duplicates">Duplicates</button>
+    <button class="nav-btn" data-view="add-order">+ Add Order</button>
+  </nav>
+
+  <main>
+    <!-- Dashboard View -->
+    <section id="view-dashboard" class="view active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="stat-total-orders">0</span>
+          <span class="stat-label">Total Orders</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="stat-total-parts">0</span>
+          <span class="stat-label">Total Parts</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="stat-total-cost">$0.00</span>
+          <span class="stat-label">Total Cost</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="stat-pending">0</span>
+          <span class="stat-label">Pending Orders</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <h2>Recent Orders</h2>
+      </div>
+      <div id="recent-orders" class="table-container">
+        <p class="empty-state">No orders yet. Add your first order to get started.</p>
+      </div>
+    </section>
+
+    <!-- Orders View -->
+    <section id="view-orders" class="view">
+      <div class="section-header">
+        <h2>All Orders</h2>
+        <div class="toolbar">
+          <input type="text" id="order-search" class="search-input" placeholder="Search orders...">
+          <select id="order-status-filter" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="ordered">Ordered</option>
+            <option value="shipped">Shipped</option>
+            <option value="received">Received</option>
+            <option value="complete">Complete</option>
+          </select>
+        </div>
+      </div>
+      <div id="orders-list" class="table-container"></div>
+    </section>
+
+    <!-- All Parts View -->
+    <section id="view-parts" class="view">
+      <div class="section-header">
+        <h2>All Parts</h2>
+        <div class="toolbar">
+          <input type="text" id="part-search" class="search-input" placeholder="Search parts...">
+          <button id="export-csv-btn" class="btn btn-secondary">Export CSV</button>
+        </div>
+      </div>
+      <div id="parts-list" class="table-container"></div>
+    </section>
+
+    <!-- Duplicates View -->
+    <section id="view-duplicates" class="view">
+      <div class="section-header">
+        <h2>Duplicate Detection</h2>
+        <p class="subtitle" style="color:var(--text-dim);font-size:0.85rem">Cross-references parts across all orders by LCSC part number, value, and package</p>
+      </div>
+      <div id="duplicates-list"></div>
+    </section>
+
+    <!-- Add Order View -->
+    <section id="view-add-order" class="view">
+      <div class="section-header">
+        <h2>Add New Order</h2>
+      </div>
+
+      <div class="form-tabs">
+        <button class="form-tab active" data-form="manual">Manual Entry</button>
+        <button class="form-tab" data-form="csv">Upload CSV</button>
+        <button class="form-tab" data-form="paste">Paste Data</button>
+      </div>
+
+      <!-- Manual Entry Form -->
+      <div id="form-manual" class="form-panel active">
+        <form id="order-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="order-name">Order Name *</label>
+              <input type="text" id="order-name" required placeholder="e.g., PCB Rev 2.1 Components">
+            </div>
+            <div class="form-group">
+              <label for="order-supplier">Supplier</label>
+              <input type="text" id="order-supplier" placeholder="e.g., DigiKey, Mouser, LCSC">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="order-date">Order Date</label>
+              <input type="date" id="order-date">
+            </div>
+            <div class="form-group">
+              <label for="order-status">Status</label>
+              <select id="order-status">
+                <option value="pending">Pending</option>
+                <option value="ordered">Ordered</option>
+                <option value="shipped">Shipped</option>
+                <option value="received">Received</option>
+                <option value="complete">Complete</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="order-notes">Notes</label>
+            <textarea id="order-notes" rows="2" placeholder="Optional notes about this order"></textarea>
+          </div>
+
+          <div class="parts-section">
+            <div class="section-header">
+              <h3>Parts</h3>
+              <button type="button" id="add-part-row" class="btn btn-small">+ Add Part</button>
+            </div>
+            <div id="parts-rows" class="parts-table">
+              <div class="parts-header">
+                <span>Part Number</span>
+                <span>Description</span>
+                <span>Qty</span>
+                <span>Unit Price</span>
+                <span>Designator</span>
+                <span>Package</span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Order</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- CSV Upload -->
+      <div id="form-csv" class="form-panel">
+        <div class="upload-zone" id="drop-zone">
+          <div class="upload-icon">📄</div>
+          <p>Drag & drop a CSV file here, or click to browse</p>
+          <input type="file" id="csv-file" accept=".csv,.tsv,.txt" hidden>
+          <p class="upload-hint">Supports CSV files with columns: Part Number, Description, Quantity, Unit Price, Designator, Package/Footprint</p>
+        </div>
+        <div id="csv-preview" class="csv-preview" hidden>
+          <h3>Preview</h3>
+          <div id="csv-mapping" class="csv-mapping"></div>
+          <div id="csv-table-preview" class="table-container"></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="csv-order-name">Order Name *</label>
+              <input type="text" id="csv-order-name" required placeholder="Name for this order">
+            </div>
+            <div class="form-group">
+              <label for="csv-order-supplier">Supplier</label>
+              <input type="text" id="csv-order-supplier" placeholder="Supplier name">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button id="csv-import-btn" class="btn btn-primary">Import Order</button>
+            <button id="csv-cancel-btn" class="btn btn-secondary">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paste Data -->
+      <div id="form-paste" class="form-panel">
+        <div class="form-group">
+          <label for="paste-data">Paste tab-separated or comma-separated data</label>
+          <textarea id="paste-data" rows="10" placeholder="Part Number, Description, Qty, Unit Price, Designator, Package&#10;C100nF, 100nF Capacitor 0402, 10, 0.01, C1 C2 C3, 0402&#10;R10K, 10K Resistor 0402, 5, 0.005, R1 R2, 0402"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="paste-has-header" checked> First row is header
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="paste-order-name">Order Name *</label>
+            <input type="text" id="paste-order-name" required placeholder="Name for this order">
+          </div>
+          <div class="form-group">
+            <label for="paste-order-supplier">Supplier</label>
+            <input type="text" id="paste-order-supplier" placeholder="Supplier name">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button id="paste-import-btn" class="btn btn-primary">Import Data</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Detail Modal -->
+    <div id="order-modal" class="modal" hidden>
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-order-name"></h2>
+          <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>BOM Tracker &mdash; Data stored locally in your browser</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
