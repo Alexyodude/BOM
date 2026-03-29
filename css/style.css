@@ -1,19 +1,19 @@
 :root {
-  --bg: #12141c;
-  --bg-card: #1e2233;
-  --bg-input: #282d3f;
-  --border: #3a4160;
-  --text: #f0f2fa;
-  --text-dim: #a8adc4;
-  --accent: #7ea0ff;
-  --accent-hover: #a3bdff;
-  --accent-dim: rgba(126, 160, 255, 0.16);
-  --green: #5cebb9;
-  --yellow: #ffd952;
-  --orange: #ffa75c;
-  --red: #ff8a8a;
+  --bg: #f4f6f9;
+  --bg-card: #ffffff;
+  --bg-input: #f0f2f5;
+  --border: #d8dce6;
+  --text: #1a1d2e;
+  --text-dim: #6b7080;
+  --accent: #3b6cff;
+  --accent-hover: #2a56e0;
+  --accent-dim: rgba(59, 108, 255, 0.08);
+  --green: #10a760;
+  --yellow: #d4930a;
+  --orange: #e07020;
+  --red: #d93636;
   --radius: 8px;
-  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -32,7 +32,7 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #1e2233 0%, #2a3050 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #edf0f7 100%);
   border-bottom: 1px solid var(--border);
   padding: 1.5rem 2rem;
 }
@@ -245,27 +245,27 @@ tbody tr:hover {
 }
 
 .status-pending {
-  background: rgba(255, 217, 82, 0.18);
+  background: rgba(212, 147, 10, 0.12);
   color: var(--yellow);
 }
 
 .status-ordered {
-  background: rgba(255, 167, 92, 0.18);
+  background: rgba(224, 112, 32, 0.12);
   color: var(--orange);
 }
 
 .status-shipped {
-  background: rgba(126, 160, 255, 0.18);
+  background: rgba(59, 108, 255, 0.10);
   color: var(--accent);
 }
 
 .status-received {
-  background: rgba(92, 235, 185, 0.18);
+  background: rgba(16, 167, 96, 0.10);
   color: var(--green);
 }
 
 .status-complete {
-  background: rgba(92, 235, 185, 0.28);
+  background: rgba(16, 167, 96, 0.15);
   color: var(--green);
 }
 
@@ -557,7 +557,7 @@ tbody tr:hover {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .modal-content {
