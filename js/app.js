@@ -45,12 +45,63 @@ const SEED_ORDERS = [
       { partNumber: 'C107368', description: '4.7uF ±10% 6.3V X7R 0603 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.0198, designator: '', package: '0603' },
     ],
   },
+  {
+    id: 'lcsc-wm2603290038',
+    name: 'LCSC WM2603290038 — Mixed Components',
+    supplier: 'LCSC',
+    date: '2026-03-29',
+    status: 'ordered',
+    notes: 'Resistors, caps, connectors, ICs, flash memory, sensors',
+    createdAt: '2026-03-29T09:50:40Z',
+    parts: [
+      { partNumber: 'C49023728', description: 'DC Power Jack 2.5mm/5.5mm 5A 20V (HC-DC0167A, HCTL)', qty: 5, unitPrice: 0.6145, designator: '', package: '-' },
+      { partNumber: 'C2843781', description: 'RGB LED SMD2835 120° (XL-2835RGBC-KS, XINGLIGHT)', qty: 10, unitPrice: 0.0456, designator: '', package: 'SMD2835-2P' },
+      { partNumber: 'C53055684', description: 'USB 3.0 Connector SMD (GT-USB-9812A, G-Switch)', qty: 5, unitPrice: 1.1043, designator: '', package: 'SMD' },
+      { partNumber: 'C2907044', description: '5.1kΩ ±1% 100mW 0603 Thick Film Resistor (FOJAN)', qty: 100, unitPrice: 0.0012, designator: '', package: '0603' },
+      { partNumber: 'C105872', description: '5.1kΩ ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0009, designator: '', package: '0402' },
+      { partNumber: 'C27834', description: '5.1kΩ ±1% 125mW 0805 Thick Film Resistor (UNI-ROYAL)', qty: 100, unitPrice: 0.0024, designator: '', package: '0805' },
+      { partNumber: 'C29936', description: '1uF ±10% 25V X7R 0603 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.0064, designator: '', package: '0603' },
+      { partNumber: 'C59782', description: '1uF ±10% 16V X7R 0603 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.0058, designator: '', package: '0603' },
+      { partNumber: 'C209892', description: '2.4GHz RF Antenna SMD (ANT016008LCS2442MA2, TDK)', qty: 5, unitPrice: 0.2311, designator: '', package: 'SMD-6P,1.6x0.8mm' },
+      { partNumber: 'C42371093', description: 'MEMS Microphone SMD (MIC-4013-G-G00, SAMZO)', qty: 5, unitPrice: 0.0571, designator: '', package: 'SMD,D=4mm' },
+      { partNumber: 'C347222', description: 'AMS1117-3.3 LDO 1A SOT-223 (UMW)', qty: 10, unitPrice: 0.0401, designator: '', package: 'SOT-223' },
+      { partNumber: 'C114662', description: '2.2kΩ ±1% 100mW 0603 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0015, designator: '', package: '0603' },
+      { partNumber: 'C114762', description: '2.2kΩ ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0009, designator: '', package: '0402' },
+      { partNumber: 'C105881', description: '330Ω ±1% 100mW 0603 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0015, designator: '', package: '0603' },
+      { partNumber: 'C105875', description: '330Ω ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0009, designator: '', package: '0402' },
+      { partNumber: 'C22548', description: '1kΩ ±1% 100mW 0603 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0014, designator: '', package: '0603' },
+      { partNumber: 'C106235', description: '1kΩ ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0008, designator: '', package: '0402' },
+      { partNumber: 'C60491', description: '100kΩ ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0009, designator: '', package: '0402' },
+      { partNumber: 'C14675', description: '100kΩ ±1% 100mW 0603 Thick Film Resistor (YAGEO)', qty: 200, unitPrice: 0.0014, designator: '', package: '0603' },
+      { partNumber: 'C19702', description: '10uF ±10% 10V X5R 0603 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.008, designator: '', package: '0603' },
+      { partNumber: 'C2655167', description: 'VL6180 ToF Distance Sensor 0~62cm I2C (ST)', qty: 3, unitPrice: 1.6303, designator: '', package: 'SMD-12P' },
+      { partNumber: 'C190862', description: 'W25Q128JVPIQ 128Mbit NOR Flash SPI 133MHz (Winbond)', qty: 5, unitPrice: 2.3853, designator: '', package: 'WSON-8-EP(5x6)' },
+      { partNumber: 'C14663', description: '100nF ±10% 50V X7R 0603 Ceramic Capacitor (YAGEO)', qty: 100, unitPrice: 0.0028, designator: '', package: '0603' },
+      { partNumber: 'C49333234', description: '4.7uF ±10% 10V X7R 0603 Ceramic Capacitor (Chinocera)', qty: 50, unitPrice: 0.0112, designator: '', package: '0603' },
+      { partNumber: 'C541464', description: '100nF ±5% 16V X7R 0402 Ceramic Capacitor (YAGEO)', qty: 200, unitPrice: 0.0018, designator: '', package: '0402' },
+      { partNumber: 'C2906861', description: '10kΩ ±1% 62.5mW 0402 Thick Film Resistor (FOJAN)', qty: 100, unitPrice: 0.0006, designator: '', package: '0402' },
+      { partNumber: 'C380001', description: '2nH 600mA Multilayer Inductor 0201 (MLG0603P2N0ST000, TDK)', qty: 50, unitPrice: 0.0048, designator: '', package: '0201' },
+      { partNumber: 'C49653491', description: '1kΩ ±1% 50mW 0201 Thick Film Resistor (GiantOhm)', qty: 100, unitPrice: 0.0006, designator: '', package: '0201' },
+      { partNumber: 'C170309', description: '4.02kΩ ±1% 62.5mW 0402 Thick Film Resistor (Walsin)', qty: 100, unitPrice: 0.0004, designator: '', package: '0402' },
+      { partNumber: 'C2928889', description: 'GD25LQ128E 128Mbit NOR Flash 1.65V~2V 120MHz (GigaDevice)', qty: 1, unitPrice: 1.5908, designator: '', package: 'WSON-8-EP(5x6)' },
+      { partNumber: 'C3202839', description: 'XT25F128F 128Mbit NOR Flash SPI 133MHz (XTX)', qty: 1, unitPrice: 1.5858, designator: '', package: 'WSON-8-EP(5x6)' },
+      { partNumber: 'C2906948', description: '5.1kΩ ±5% 62.5mW 0402 Thick Film Resistor (FOJAN)', qty: 100, unitPrice: 0.0005, designator: '', package: '0402' },
+      { partNumber: 'C367479', description: '1.18kΩ ±1% 50mW 0201 Thick Film Resistor (Walsin)', qty: 100, unitPrice: 0.0016, designator: '', package: '0201' },
+      { partNumber: 'C114765', description: '22Ω ±1% 62.5mW 0402 Thick Film Resistor (YAGEO)', qty: 100, unitPrice: 0.0009, designator: '', package: '0402' },
+      { partNumber: 'C307711', description: '3nH 450mA Multilayer Inductor 0201 (MLG0603P3N0CT000, TDK)', qty: 100, unitPrice: 0.0046, designator: '', package: '0201' },
+      { partNumber: 'C307423', description: '4.7uF ±20% 6.3V X5R 0402 Ceramic Capacitor (Samsung)', qty: 50, unitPrice: 0.0035, designator: '', package: '0402' },
+      { partNumber: 'C6119792', description: '1uF ±10% 16V X5R 0402 Ceramic Capacitor (HRE)', qty: 100, unitPrice: 0.0022, designator: '', package: '0402' },
+      { partNumber: 'C315248', description: '10uF ±20% 10V X5R 0402 Ceramic Capacitor (Samsung)', qty: 100, unitPrice: 0.0095, designator: '', package: '0402' },
+      { partNumber: 'C5142542', description: '20pF ±5% 50V C0G 0201 Ceramic Capacitor (CCTC)', qty: 100, unitPrice: 0.0006, designator: '', package: '0201' },
+      { partNumber: 'C50380690', description: 'MicroSD Card Socket Push-Pull (LCK-TF-109H4508-WLG, LCKELEC)', qty: 20, unitPrice: 0.16, designator: '', package: 'SMD' },
+    ],
+  },
 ];
 
 // ── State ──────────────────────────────────────────────
 const STORAGE_KEY = 'bom-tracker-data';
 const SEED_VERSION_KEY = 'bom-tracker-seed-v';
-const CURRENT_SEED_VERSION = 3;
+const CURRENT_SEED_VERSION = 4;
 
 function loadData() {
   try {
