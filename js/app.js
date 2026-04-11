@@ -96,12 +96,67 @@ const SEED_ORDERS = [
       { partNumber: 'C50380690', description: 'MicroSD Card Socket Push-Pull (LCK-TF-109H4508-WLG, LCKELEC)', qty: 20, unitPrice: 0.16, designator: '', package: 'SMD' },
     ],
   },
+  {
+    id: 'lcsc-wm2604010083',
+    name: 'LCSC WM2604010083 — Pin Header (40P)',
+    supplier: 'LCSC',
+    date: '2026-04-11',
+    status: 'ordered',
+    notes: '40-position dual-row 2.54mm pin header',
+    createdAt: '2026-04-11T21:01:49Z',
+    parts: [
+      { partNumber: 'C5224014', description: 'Pin Header 40 Position 2.54mm Pitch Dual Row Through Hole (PZ2.54-2*20, ZHOURI)', qty: 5, unitPrice: 0.144, designator: '', package: 'Through Hole,P=2.54mm' },
+    ],
+  },
+  {
+    id: 'lcsc-wm2604010038',
+    name: 'LCSC WM2604010038 — FPC Connectors & Headers',
+    supplier: 'LCSC',
+    date: '2026-04-11',
+    status: 'ordered',
+    notes: 'FFC/FPC connectors, cables, and 2.54mm headers',
+    createdAt: '2026-04-11T21:01:47Z',
+    parts: [
+      { partNumber: 'C5213728', description: 'FFC/FPC Connector 5 Position 0.5mm Bottom Contact Right Angle SMD (HC-FPC-05-10-5RLTAG, HCTL)', qty: 150, unitPrice: 0.0609, designator: '', package: 'SMD,P=0.5mm' },
+      { partNumber: 'C20069015', description: '15 Position FFC/FPC Cable 1mm 100mm (YTC10A-15P-100-3-5, YIYUAN)', qty: 10, unitPrice: 0.0721, designator: '', package: 'P=1mm' },
+      { partNumber: 'C5242922', description: '15 Position FFC/FPC Cable 1mm 5cm Type A (FC-1.0A-15P-50mm, DEALON)', qty: 5, unitPrice: 0.0773, designator: '', package: 'P=1mm' },
+      { partNumber: 'C5242921', description: '15 Position FFC/FPC Cable 1mm 5cm Type B (FC-1.0B-15P-50mm, DEALON)', qty: 5, unitPrice: 0.0773, designator: '', package: 'P=1mm' },
+      { partNumber: 'C25503128', description: 'Female Socket 40P 2x20P 2.54mm Through Hole (2541FV-2x20P-B, HanElectricity)', qty: 5, unitPrice: 0.134, designator: '', package: 'Through Hole,P=2.54mm' },
+      { partNumber: 'C124369', description: 'Pin Header 2x20P 2.54mm Right Angle Through Hole (B-2100R40P-B110, Ckmtw)', qty: 5, unitPrice: 0.377, designator: '', package: 'Through Hole,Right Angle,P=2.54mm' },
+    ],
+  },
+  {
+    id: 'lcsc-wm2604020136',
+    name: 'LCSC WM2604020136 — FPC Connector',
+    supplier: 'LCSC',
+    date: '2026-04-11',
+    status: 'ordered',
+    notes: '5-position 0.5mm FPC connector',
+    createdAt: '2026-04-11T21:01:51Z',
+    parts: [
+      { partNumber: 'C5213728', description: 'FFC/FPC Connector 5 Position 0.5mm Bottom Contact Right Angle SMD (HC-FPC-05-10-5RLTAG, HCTL)', qty: 150, unitPrice: 0.0609, designator: '', package: 'SMD,P=0.5mm' },
+    ],
+  },
+  {
+    id: 'lcsc-wm2604010638',
+    name: 'LCSC WM2604010638 — 0Ω Resistors',
+    supplier: 'LCSC',
+    date: '2026-04-11',
+    status: 'ordered',
+    notes: '0Ω jumper resistors in 0402, 0603, 0805',
+    createdAt: '2026-04-11T21:01:50Z',
+    parts: [
+      { partNumber: 'C106231', description: '0Ω 62.5mW 50V ±1% 0402 Thick Film Resistor (RC0402FR-070RL, YAGEO)', qty: 1000, unitPrice: 0.0007, designator: '', package: '0402' },
+      { partNumber: 'C100044', description: '0Ω 100mW 75V ±1% 0603 Thick Film Resistor (RC0603FR-070RL, YAGEO)', qty: 100, unitPrice: 0.0015, designator: '', package: '0603' },
+      { partNumber: 'C17477', description: '0Ω ±1% 125mW 0805 Thick Film Resistor (0805W8F0000T5E, UNI-ROYAL)', qty: 100, unitPrice: 0.0021, designator: '', package: '0805' },
+    ],
+  },
 ];
 
 // ── State ──────────────────────────────────────────────
 const STORAGE_KEY = 'bom-tracker-data';
 const SEED_VERSION_KEY = 'bom-tracker-seed-v';
-const CURRENT_SEED_VERSION = 4;
+const CURRENT_SEED_VERSION = 5;
 
 function loadData() {
   try {
